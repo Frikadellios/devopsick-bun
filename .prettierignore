@@ -4,3 +4,5 @@ node_modules/
 .astro/
 pnpm-lock.yaml
 bun.lockb
+.vscode/
+.test/

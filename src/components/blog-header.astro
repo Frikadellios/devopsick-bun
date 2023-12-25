@@ -12,6 +12,7 @@ type Props = {
 
 const { title } = Astro.props;
 const { category } = Astro.params;
+const { lang } = Astro.params;
 ---
 
 <h1 class="inline-block font-heading text-4xl">{title}</h1>
@@ -29,7 +30,7 @@ const { category } = Astro.params;
       <ul class="flex snap-x snap-mandatory overflow-auto items-center space-x-2 lg:space-x-2.5 pb-2">
         <li class="flex-shrink-0 snap-start">
           <a
-            href={`/blog`}
+          href={`/${lang}/blog`}
             class={cn(
               !category ? "select-none" : "",
               buttonVariants({
@@ -43,7 +44,7 @@ const { category } = Astro.params;
         {categories.map((item) => (
           <li class="flex-shrink-0 snap-start">
             <a
-              href={`/blog/category/${item}`}
+            href={`/${lang}/blog/category/${item}`}
               class={cn(
                 "capitalize",
                 item === category ? "select-none" : "",

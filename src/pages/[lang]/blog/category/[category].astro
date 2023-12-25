@@ -9,13 +9,13 @@ import { getCollection } from "astro:content";
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts.map((post) => ({
-    params: { category: post.data.category },
+    params: { category: post?.data.category, lang: post?.data.lang || 'uk' },
   }));
 }
 
-const { category } = Astro.params;
+const { category, lang} = Astro.params;
 
-if (!category) {
+if (!category || !lang) {
   return new Response(null, {
     status: 404,
     statusText: "Not found",
@@ -23,9 +23,10 @@ if (!category) {
 }
 
 const posts = await getPostsByCategory(category);
+export const prerender = true;
 ---
 
-<MainLayout title={`${capitalizer(category)} | Blog`} description={`All posts for ${category} category`} lang="lang">
+<MainLayout title={`${capitalizer(category)} | Blog`} description={`All posts for ${category} category`} lang={lang}>
   <section class="container py-10">
     <BlogHeader title={`Posts by ${category} category`} />
 

@@ -8,13 +8,15 @@ import {
   DEFAULT_LANG,
   getLocalizedPathname,
   type UiType,
-} from '../../i18n/utils'
+} from '@/i18n/utils'
+
 
 
 interface Props {
   title: string
   description: string
   image?: string
+  lang: string
 }
 
 const canonicalPathname = pathNameIsInLanguage(Astro.url.pathname, DEFAULT_LANG)

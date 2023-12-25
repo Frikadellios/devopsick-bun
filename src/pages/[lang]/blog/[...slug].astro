@@ -1,28 +1,36 @@
 ---
-import BlogPostLayout from '@/layouts/blog-post.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getBlogPosts } from '../../../content/config'
+import BlogPost from '@/layouts/blog-post.astro';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const pages = await getBlogPosts()
+
+  const paths = pages.map((page) => {
+    return {
+      params: { lang: page?.data.lang || 'uk', slug: page.blog_slug },
+      props: page,
+    }
+  })
+
+  return paths
 }
 
-type Props = CollectionEntry<'blog'>;
+const { lang, slug } = Astro.params
+const page = Astro.props
+const formattedDate = page.data?.date?.toLocaleString(lang)
 
-const post = Astro.props;
-const slug = Astro.params.slug;
-const { Content } = await post.render();
+const { Content } = await page.render()
 
-if (!slug || !post) {
+if (!slug || !page) {
   return new Response(null, {
     status: 404,
-    statusText: 'Not found'
-  });
+    statusText: 'Not found',
+  })
 }
+export const prerender = true
 ---
-<BlogPostLayout {...post}>
-	<Content />
-</BlogPostLayout>
+
+<BlogPost {...page.data} lang={lang}>
+  <Content />
+  <p>by {page.data.author} • {formattedDate}</p>
+</BlogPost>
