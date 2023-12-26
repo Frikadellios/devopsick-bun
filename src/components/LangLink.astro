@@ -13,8 +13,13 @@ const isActive = language === lang
 const href = getLocalizedPathname(pathname, language)
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
-  {language}
+<a
+  href={href}
+  lang={language}
+  class:list={[className, { active: isActive }]}
+  {...props}
+>
+  <slot />
 </a>
 <style>
   a {
