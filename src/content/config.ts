@@ -59,14 +59,14 @@ export async function getBlogPosts() {
   })
 }
 
-export async function getCategoryPosts() {
-  const posts = await getCollection('blog')
+export async function getGuidesLang() {
+  const guides = await getCollection('guides')
 
-  return posts.map((post) => {
-    const blog_category = post.data.category.split('/')[0]
+  return guides.map((guides) => {
+    const guides_slug = guides.slug.split('/')[0]
     return {
-      ...post,
-      blog_category,
+      ...guides,
+      guides_slug,
     }
   })
 }

@@ -4,10 +4,11 @@ import DocsPageHeader from "@/components/page-header.astro";
 import DocsLayout from "@/layouts/docs-layout.astro";
 import { getGuides } from "@/lib/fetchers";
 
-const guides = await getGuides();
----
+const { lang } = Astro.params; // Add this line
 
-<DocsLayout title="Blog" description="Lorem ipsum dolor sit amet">
+const guides = await getGuides(lang); // Pass the lang prop to the function
+---
+<DocsLayout title="Blog" description="Lorem ipsum dolor sit amet" lang={lang}> {/* Pass lang prop to DocsLayout */}
   <section class="container max-w-6xl py-10">
     <DocsPageHeader
       heading="Guides"

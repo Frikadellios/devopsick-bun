@@ -2,18 +2,11 @@
 import BlogHeader from "@/components/blog-header.astro";
 import BlogCard from "@/components/cards/blog-card.astro";
 import MainLayout from "@/layouts/main-layout.astro";
-import { getPostsByCategory } from "@/lib/fetchers";
+import { getBlogPosts } from '@/content/config'
 import { capitalizer } from "@/lib/utils";
 import { getCollection } from "astro:content";
 
-export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: { category: post?.data.category, lang: post?.data.lang || 'uk' },
-  }));
-}
-
-const { category, lang} = Astro.params;
+const { category, lang } = Astro.params;
 
 if (!category || !lang) {
   return new Response(null, {
@@ -22,8 +15,23 @@ if (!category || !lang) {
   });
 }
 
-const posts = await getPostsByCategory(category);
+const posts = (await getBlogPosts())
+  ?.filter((blog) => {
+    return blog?.data?.lang === lang && blog?.data?.category === category;
+  })
+  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  const paths = posts.map((post) => ({
+    params: { category: post?.data.category, lang: post?.data.lang || 'uk' },
+  }));
+
+  return paths;
+}
+
 export const prerender = true;
+
 ---
 
 <MainLayout title={`${capitalizer(category)} | Blog`} description={`All posts for ${category} category`} lang={lang}>
