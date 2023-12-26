@@ -1,7 +1,7 @@
 ---
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
-import MainLayout from "@/layouts/main-layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import { cn } from "@/lib/utils";
 import Icon from "astro-icon";
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
@@ -20,7 +20,7 @@ const page = Astro.props
 export const prerender = true
 ---
 
-<MainLayout title={t('site.title')} description={t('site.description')} lang={lang}>
+<Layout title={t('site.title')} description={t('site.description')} lang={lang}>
   <section class="space-y-6 pb-12 pt-16 lg:py-28">
     <div
       class="container flex max-w-[64rem] flex-col items-center gap-5 text-center"
@@ -250,4 +250,4 @@ export const prerender = true
       </p>
     </div>
   </section>
-</MainLayout>
+</Layout>

@@ -1,5 +1,5 @@
 ---
-import MainLayout from "@/layouts/main-layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
@@ -16,7 +16,7 @@ const page = Astro.props
 export const prerender = true
 ---
 
-<MainLayout title={t('site.title')} description={t('site.description')} lang={lang}>
+<Layout title={t('site.title')} description={t('site.description')} lang={lang}>
   <section class="space-y-5">
     <h1 class="font-heading text-4xl">About Page</h1>
     <p>
@@ -83,4 +83,4 @@ export const prerender = true
       tristique magna.
     </p>
   </section>
-</MainLayout>
+</Layout>

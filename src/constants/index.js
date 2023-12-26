@@ -1,5 +1,170 @@
 import { testimonial } from '@/assets/index'
 
+export const infosNav = [
+    {
+      title: {
+        uk: 'Menu',
+        en: 'Menu',
+        ru: 'Menu',
+      },
+      items: [
+        {
+          title: {
+            uk: 'Features',
+            en: 'Features',
+            ru: 'Features',
+          },
+          href: '/#features',
+          description: {
+            uk: "Take a closer look at the project's features.",
+            en: "Take a closer look at the project's features.",
+            ru: "Take a closer look at the project's features.",
+          },
+        },
+        {
+          title: {
+            uk: 'Twitter (@miickasmt)',
+            en: 'Twitter (@miickasmt)',
+            ru: 'Twitter (@miickasmt)',
+          },
+          href: 'https://twitter.com/miickasmt',
+          description: {
+            uk: 'Follow me to get the latest updates and news.',
+            en: 'Follow me to get the latest updates and news.',
+            ru: 'Follow me to get the latest updates and news.',
+          },
+          external: true,
+        },
+        {
+          title: {
+            uk: 'Source Code',
+            en: 'Source Code',
+            ru: 'Source Code',
+          },
+          href: 'https://github.com/mickasmt/astro-nomy',
+          description: {
+            uk: "You want to star the repository ? Let's get started!",
+            en: "You want to star the repository ? Let's get started!",
+            ru: "You want to star the repository ? Let's get started!",
+          },
+          external: true,
+        },
+      ],
+    },
+  ]
+
+export const examplesNav = [
+    {
+      title: {
+        uk: 'Examples',
+        en: 'Examples',
+        ru: 'Examples',
+      },
+      items: [
+        {
+          title: {
+            uk: 'Blog',
+            en: 'Blog',
+            ru: 'Blog',
+          },
+          href: '/blog',
+          description: {
+            uk: 'A Markdown/MDX blog built using Content Collections.',
+            en: 'A Markdown/MDX blog built using Content Collections.',
+            ru: 'A Markdown/MDX blog built using Content Collections.',
+          },
+        },
+        {
+          title: {
+            uk: 'Docs',
+            en: 'Docs',
+            ru: 'Docs',
+          },
+          href: '/docs/getting-started',
+          description: {
+            uk: 'A Markdown/MDX documentation site built using Content Collections.',
+            en: 'A Markdown/MDX documentation site built using Content Collections.',
+            ru: 'A Markdown/MDX documentation site built using Content Collections.',
+          },
+        },
+        {
+          title: {
+            uk: 'Authentification',
+            en: 'Authentification',
+            ru: 'Authentification',
+          },
+          href: '/login',
+          description: {
+            uk: 'Login and register pages for authentification.',
+            en: 'Login and register pages for authentification.',
+            ru: 'Login and register pages for authentification.',
+          },
+          disabled: true,
+        },
+        {
+          title: {
+            uk: 'Dashboard',
+            en: 'Dashboard',
+            ru: 'Dashboard',
+          },
+          href: '/#dashboard',
+          description: {
+            uk: 'A dashboard panel after authentification.',
+            en: 'A dashboard panel after authentification.',
+            ru: 'A dashboard panel after authentification.',
+          },
+          disabled: true,
+        },
+        {
+          title: {
+            uk: 'Ecommerce',
+            en: 'Ecommerce',
+            ru: 'Ecommerce',
+          },
+          href: '/#examples/ecommerce',
+          description: {
+            uk: 'Different pages of an ecommerce app fetching data from an API.',
+            en: 'Different pages of an ecommerce app fetching data from an API.',
+            ru: 'Different pages of an ecommerce app fetching data from an API.',
+          },
+          disabled: true,
+        },
+        {
+          title: {
+            uk: 'Social Media',
+            en: 'Social Media',
+            ru: 'Social Media',
+          },
+          href: '/#examples/social-media',
+          description: {
+            uk: 'Different components & pages of an social media app.',
+            en: 'Different components & pages of an social media app.',
+            ru: 'Different components & pages of an social media app.',
+          },
+          disabled: true,
+        },
+      ],
+    },
+  ]
+ export const links = [
+    {
+      title: {
+        uk: 'FAQ',
+        en: 'FAQ',
+        ru: 'FAQ',
+      },
+      href: '/faq',
+    },
+    {
+      title: {
+        uk: 'About',
+        en: 'About',
+        ru: 'About',
+      },
+      href: '/about',
+    },
+  ]
+
 export const services = [
   {
     title: 'Boxing',

@@ -1,7 +1,7 @@
 ---
 import BlogHeader from "@/components/blog-header.astro";
 import BlogCard from "@/components/cards/blog-card.astro";
-import MainLayout from "@/layouts/main-layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import { getBlogPosts } from '@/content/config'
 const { lang } = Astro.params
 
@@ -22,7 +22,7 @@ const page = Astro.props
 export const prerender = true
 ---
 
-<MainLayout title="Blog" description="Blog" lang={lang}>
+<Layout title="Blog" description="Blog" lang={lang}>
   <section class="container py-10">
     <BlogHeader title="Blog" />
 
@@ -32,4 +32,4 @@ export const prerender = true
       {posts.map((post) => <BlogCard {...post} />)}
     </div>
   </section>
-</MainLayout>
+</Layout>

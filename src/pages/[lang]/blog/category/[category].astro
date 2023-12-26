@@ -1,7 +1,7 @@
 ---
 import BlogHeader from "@/components/blog-header.astro";
 import BlogCard from "@/components/cards/blog-card.astro";
-import MainLayout from "@/layouts/main-layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import { getBlogPosts } from '@/content/config'
 import { capitalizer } from "@/lib/utils";
 import { getCollection } from "astro:content";
@@ -34,7 +34,7 @@ export const prerender = true;
 
 ---
 
-<MainLayout title={`${capitalizer(category)} | Blog`} description={`All posts for ${category} category`} lang={lang}>
+<Layout title={`${capitalizer(category)} | Blog`} description={`All posts for ${category} category`} lang={lang}>
   <section class="container py-10">
     <BlogHeader title={`Posts by ${category} category`} />
 
@@ -44,4 +44,4 @@ export const prerender = true;
       {posts.map((post) => <BlogCard {...post} />)}
     </div>
   </section>
-</MainLayout>
+</Layout>
